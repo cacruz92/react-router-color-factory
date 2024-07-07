@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import { useHistory } from "react-router-dom";
 
 const ColorForm = ({addColor}) => {
     const INITIAL_STATE = {
@@ -7,6 +8,7 @@ const ColorForm = ({addColor}) => {
     }
 
     const [formData, setFormData] = useState(INITIAL_STATE);
+    const history = useHistory();
     
     const handleChange = (e) => {
         const {name, value} = e.target;
@@ -20,6 +22,7 @@ const ColorForm = ({addColor}) => {
         e.preventDefault();
         addColor(formData);
         setFormData(INITIAL_STATE);
+        history.push('/colors');
     }
 
     return (
