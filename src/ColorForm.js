@@ -1,5 +1,6 @@
 import React, {useState} from "react";
-import { useHistory } from "react-router-dom";
+import {Link} from "react-router-dom";
+// import { useHistory } from "react-router-dom";
 
 const ColorForm = ({addColor}) => {
     const INITIAL_STATE = {
@@ -8,7 +9,7 @@ const ColorForm = ({addColor}) => {
     }
 
     const [formData, setFormData] = useState(INITIAL_STATE);
-    const history = useHistory();
+    // const history = useHistory();
     
     const handleChange = (e) => {
         const {name, value} = e.target;
@@ -22,7 +23,7 @@ const ColorForm = ({addColor}) => {
         e.preventDefault();
         addColor(formData);
         setFormData(INITIAL_STATE);
-        history.push('/colors');
+        // history.push('/colors');
     }
 
     return (
@@ -50,6 +51,7 @@ const ColorForm = ({addColor}) => {
                 <br></br>
                 
                 <button>Add Color</button>
+                <Link to={'/'}><p> Return!</p></Link>
             </form>
         </div>
     )
