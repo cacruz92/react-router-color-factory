@@ -1,7 +1,10 @@
 import React, {useState} from "react";
 
 const ColorForm = ({addColor}) => {
-    const INITIAL_STATE = {}
+    const INITIAL_STATE = {
+        code: '#000000',
+        color:''
+    }
 
     const [formData, setFormData] = useState(INITIAL_STATE);
     
@@ -15,7 +18,7 @@ const ColorForm = ({addColor}) => {
 
     const handleSubmit = (e) =>{
         e.preventDefault();
-        addColor({...formData});
+        addColor(formData);
         setFormData(INITIAL_STATE);
     }
 
@@ -24,21 +27,21 @@ const ColorForm = ({addColor}) => {
             <form className="color-form" onSubmit={handleSubmit}>
                 <h2>Choose a new color and name it below</h2>
                 
-                <label htmlFor="color">Color: </label>
+                <label htmlFor="code">Color: </label>
                 <input 
-                id="color" 
+                id="code" 
                 type="color"
-                name="color"
-                value={formData.color}
+                name="code"
+                value={formData.code}
                 onChange={handleChange}
                 />
                 <br></br>
-                <label htmlFor="color-name">Color Name: </label>
+                <label htmlFor="color">Color Name: </label>
                 <input 
-                id="color-name" 
+                id="color" 
                 type="text"
-                name="color-name"
-                value={formData.colorName}
+                name="color"
+                value={formData.color}
                 onChange={handleChange}
                 />
                 <br></br>

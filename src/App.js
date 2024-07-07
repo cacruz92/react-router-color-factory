@@ -6,9 +6,10 @@ import ColorForm from './ColorForm';
 import Colors from './Colors';
 
 function App() {
+  console.log('Rendering App component...');
   return (
     <Routes>
-      <Route path="/colors/:color" element={<ColorDetails />} />  
+      <Route path="/:color/:code" element={<ColorDetails />} />  
       <Route path="/colorform" element={<ColorForm />} />  
       <Route path="*" element={<Colors />} />  
     </Routes>
